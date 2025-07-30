@@ -1,0 +1,130 @@
+{
+    "info": {
+      "name": "MedicalAnalysisAPI",
+      "_postman_id": "a1b2c3d4-e5f6-7890-1234-56789abcdef0",
+      "description": "API collection for Medical Analysis Project with JWT authentication",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get JWT Token",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"username\": \"apiadmin\",\n    \"password\": \"abcd@1234\"\n}"
+          },
+          "url": {
+            "raw": "http://127.0.0.1:8000/api/token/",
+            "protocol": "http",
+            "host": ["127.0.0.1"],
+            "port": "8000",
+            "path": ["api", "token", ""]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Refresh Token",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"refresh\": \"{{refresh_token}}\"\n}"
+          },
+          "url": {
+            "raw": "http://127.0.0.1:8000/api/token/refresh/",
+            "protocol": "http",
+            "host": ["127.0.0.1"],
+            "port": "8000",
+            "path": ["api", "token", "refresh", ""]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Combined Data",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}"
+            }
+          ],
+          "url": {
+            "raw": "http://127.0.0.1:8000/api/data/",
+            "protocol": "http",
+            "host": ["127.0.0.1"],
+            "port": "8000",
+            "path": ["api", "data", ""]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get RF Classification Report",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}"
+            }
+          ],
+          "url": {
+            "raw": "http://127.0.0.1:8000/api/rf_result/",
+            "protocol": "http",
+            "host": ["127.0.0.1"],
+            "port": "8000",
+            "path": ["api", "rf_result", ""]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get y_prob Sample",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}"
+            }
+          ],
+          "url": {
+            "raw": "http://127.0.0.1:8000/api/y_result/",
+            "protocol": "http",
+            "host": ["127.0.0.1"],
+            "port": "8000",
+            "path": ["api", "y_result", ""]
+          }
+        },
+        "response": []
+      }
+    ],
+    "event": [],
+    "variable": [
+      {
+        "key": "access_token",
+        "value": ""
+      },
+      {
+        "key": "refresh_token",
+        "value": ""
+      }
+    ]
+  }
+  
